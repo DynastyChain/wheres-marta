@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import LiveBusMap from '../liveBusMap/LiveBusMap.js';
 import axios from 'axios';
-import API_KEY from '../../secrets.js';
+import ApiKey from '../secrets.js';
 import '../App.css';
 
 
@@ -14,7 +14,7 @@ class SearchByRoute extends Component {
       coords: [],
       center: {lat: 33.82, lng: -84.44},
       zoom: 10,
-      apiK: {key: API_KEY}
+      apiK: {key: ApiKey}
     }
     this.handleChange = this.handleChange.bind(this);
     this.setCoords = this.setCoords.bind(this);
@@ -30,7 +30,6 @@ class SearchByRoute extends Component {
     for(var i=0; i<res.data.length; i++) {
       arr.push([res.data[i].LATITUDE,res.data[i].LONGITUDE]);
     }
-
     this.setState({coords: arr});
   }
 
